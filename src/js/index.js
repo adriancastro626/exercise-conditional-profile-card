@@ -20,7 +20,13 @@ import "../style/index.scss";
         role: null,
         country: null,
         city: null
-    }
+    }   
+    
+    if name != null{
+        return false} 
+        else{
+            return true
+        }
  */
 function render(variables = {}) {
   console.log("These are the current variables: ", variables); //print on the console
@@ -33,14 +39,30 @@ function render(variables = {}) {
   document.querySelector("#widget_content").innerHTML = `<div class="widget">
             ${cover}
           <img src="${variables.avatarURL}" class="photo" />
-          <h1>Lucy Boilett</h1>
-          <h2>Web Developer</h2>
-          <h3>Miami, USA</h3>
-          <ul class="position-right">
-            <li><a href="https://twitter.com/alesanchezr"><i class="fa fa-twitter"></i></a></li>
-            <li><a href="https://github.com/alesanchezr"><i class="fa fa-github"></i></a></li>
-            <li><a href="https://linkedin.com/alesanchezr"><i class="fa fa-linkedin"></i></a></li>
-            <li><a href="https://instagram.com/alesanchezr"><i class="fa fa-instagram"></i></a></li>
+          <h1>${variables.name != null ? variables.name : "Nombre"} ${
+    variables.lastname != null ? variables.lastname : "Apellido"
+  }</h1>
+          <h2>${variables.role != null ? variables.role : "Posición"}</h2>
+          <h3>${variables.city != null ? variables.city : "Ciudad"} ${
+    variables.country != null ? variables.country : "País"
+  }</h3>
+          <ul class= ${
+            variables.socialMediaPosition === "position-right"
+              ? "position-right"
+              : "position-left"
+          }>
+            <li><a href="https://twitter.com/${
+              variables.twitter != null ? variables.twitter : "Perfil"
+            }"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="https://github.com/${
+              variables.github != null ? variables.github : "Perfil"
+            }"><i class="fa fa-github"></i></a></li>
+            <li><a href="https://linkedin.com/${
+              variables.linkedin != null ? variables.linkedin : "Perfil"
+            }"><i class="fa fa-linkedin"></i></a></li>
+            <li><a href="https://instagram.com/${
+              variables.instagram != null ? variables.instagram : "Perfil"
+            }"><i class="fa fa-instagram"></i></a></li>
           </ul>
         </div>
     `;
